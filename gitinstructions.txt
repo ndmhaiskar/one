@@ -1,0 +1,181 @@
+Notes : git
+
+-- For cloning central remote repository to the local machine 
+>> git clone https://github.com/ndmhaiskar/one.git
+Cloning into 'one'...
+warning: You appear to have cloned an empty repository.
+
+--Want to change in the repository adding one file to the repository.
+>> git add <filename>
+>> git add intro.html
+
+--Take a snapshot of repository and save it
+>> git commit
+>> git commit -m "message"
+
+E:\one>git commit -m "add and save hello file to repository"
+[main (root-commit) 5f8347b] add and save hello file to repository
+ 1 file changed, 9 insertions(+)
+ create mode 100644 hello.html
+ 
+ -- what currently going on in your repository
+ >> git status
+ E:\one>git status
+On branch main
+Your branch is based on 'origin/main', but the upstream is gone.
+  (use "git branch --unset-upstream" to fixup)
+nothing to commit, working tree clean
+
+--How to push those local changes reflect in the remote repository?
+>> git push
+
+-- If credentials are already there & those r not yours 
+E:\one>git push
+remote: Permission to ndmhaiskar/one.git denied to Nilesh-SPHN.
+fatal: unable to access 'https://github.com/ndmhaiskar/one.git/': The requested URL returned error: 403
+
+-- Removing github credentials from windows credential manager we need to authenticate for github in the browser
+E:\one>git push
+info: please complete authentication in your browser...
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 328 bytes | 164.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/ndmhaiskar/one.git
+ * [new branch]      main -> main
+ 
+ -- Inverse of git push i.e. if somebody has changed the code in the remote repository then how to pull those changes?
+ 
+ >> git pull
+ E:\one>git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 945 bytes | 2.00 KiB/s, done.
+From https://github.com/ndmhaiskar/one
+   5f8347b..75b084c  main       -> origin/main
+Updating 5f8347b..75b084c
+Fast-forward
+ hello.html | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+ 
+ Merge Conflicts:
+ E:\one>git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 918 bytes | 6.00 KiB/s, done.
+From https://github.com/ndmhaiskar/one
+   75b084c..c097023  main       -> origin/main
+Auto-merging hello.html
+CONFLICT (content): Merge conflict in hello.html
+Automatic merge failed; fix conflicts and then commit the result.
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My WebPage</title>
+	</head>
+	<body>
+<<<<<<< HEAD
+		<h1>Hello world!....Hello again..! Hello one more time!</h1>
+=======
+		<h1>Hello world!....Hello again..! Hello Hello Hello!</h1>
+>>>>>>> c0970239f6e1810448312168f04e7158c7ad7f90
+	</body>
+</html>
+
+-- How to resolve conflict?
+		<h1>Hello world!....Hello again..! Hello one more time!</h1>
+
+--After deleting how to push code to the repository?
+
+E:\one>git add hello.html
+
+E:\one>git commit -m "fixed conflicts"
+[main 0ca75f1] fixed conflicts
+
+E:\one>git push
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 437 bytes | 218.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To https://github.com/ndmhaiskar/one.git
+   c097023..0ca75f1  main -> main
+
+-- How to see commit history?
+>> git log
+
+E:\one>git log
+commit 0ca75f1a6549229c464eae2875e123f20e1f302c (HEAD -> main, origin/main)
+Merge: 2b14162 c097023
+Author: Nilesh-SPHN <nilesh.sphoorthyengg.ac.in>
+Date:   Fri Jul 26 19:53:17 2024 +0530
+
+    fixed conflicts
+
+commit c0970239f6e1810448312168f04e7158c7ad7f90
+Author: ndmhaiskar <ndmhaiskar@gmail.com>
+Date:   Fri Jul 26 19:44:33 2024 +0530
+
+    Update hello.html
+
+commit 2b14162a276565a95b76120cedf538ace1a54031
+Author: Nilesh-SPHN <nilesh.sphoorthyengg.ac.in>
+Date:   Fri Jul 26 19:43:56 2024 +0530
+
+    Third hello line added
+
+commit 75b084cda59d895fa7e9ce939c321755d2b2ed68
+Author: ndmhaiskar <ndmhaiskar@gmail.com>
+Date:   Fri Jul 26 19:30:56 2024 +0530
+
+    Update hello.html
+
+commit 5f8347b277a1694351ff6bdc3859a4f8196699a6
+Author: Nilesh-SPHN <nilesh.sphoorthyengg.ac.in>
+Date:   Fri Jul 26 19:14:56 2024 +0530
+
+    add and save hello file to repository
+
+
+-- How to take back old code?
+>> git reset 
+>> git reset --hard <commit>
+>> git reset --hard origin/master
+
+-- How to exit from >>git log
+:wq
+to exit
+
+--How to be at particular code version by using commit hashcode?
+E:\one> git reset --hard c0970239f6e  [take some letters from commit hashcode]
+HEAD is now at c097023 Update hello.html
+PS E:\one>  
+
+-- How to take all the references of log?
+PS E:\one> git reflog
+c097023 (HEAD -> main) HEAD@{0}: reset: moving to c0970239f6e
+0ca75f1 (origin/main) HEAD@{1}: commit (merge): fixed conflicts
+2b14162 HEAD@{2}: commit: Third hello line added
+75b084c HEAD@{3}: pull: Fast-forward
+5f8347b HEAD@{4}: commit (initial): add and save hello file to repository
+PS E:\one> 
+
+-- How to add and commit together in git?
+PS E:\one> git commit -am "Back to early version of code by commit hash"
+[main 1ed9d71] Back to early version of code by commit hash
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+PS E:\one> 
+
+
+
+
+

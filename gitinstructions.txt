@@ -190,7 +190,19 @@ Switched to branch 'feature'
 PS E:\one> git branch
 * feature
   main
-
-
+-- How to merge branches?
+PS E:\one> git branch
+  feature
+* main
+PS E:\one> git merge checkout
+merge: checkout - not something we can merge
+PS E:\one> git merge feature 
+Updating 13e9b59..f42eec3
+Fast-forward
+ gitinstructions.txt | 15 +++++++++++++++
+ index.html          |  1 +
+ table.html          |  3 +++
+ 3 files changed, 19 insertions(+)
+PS E:\one> 
 
 

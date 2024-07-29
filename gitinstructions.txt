@@ -175,6 +175,21 @@ PS E:\one> git commit -am "Back to early version of code by commit hash"
  1 file changed, 2 insertions(+), 1 deletion(-)
 PS E:\one> 
 
+--How to take our project in multiple different directions?
+Branching
+PS E:\one> git branch
+* main
+E:\one> git branch feature
+E:\one> git branch
+  feature
+* main 
+PS E:\one> git checkout feature
+M       gitinstructions.txt
+M       table.html
+Switched to branch 'feature'
+PS E:\one> git branch
+* feature
+  main
 
 
 

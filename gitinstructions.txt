@@ -194,8 +194,7 @@ PS E:\one> git branch
 PS E:\one> git branch
   feature
 * main
-PS E:\one> git merge checkout
-merge: checkout - not something we can merge
+
 PS E:\one> git merge feature 
 Updating 13e9b59..f42eec3
 Fast-forward
@@ -205,4 +204,20 @@ Fast-forward
  3 files changed, 19 insertions(+)
 PS E:\one> 
 
+Remotes in github?
+>>git pull -- Its a combination of two commands
+git fetch -- fetching all the updates from remote (github.com) and 
+git merge -- merging with local git repository 
 
+master(local)+master/origin(remote)---merge
+
+What is Forks?
+Taking the copy of the original project from remote repository 
+and then change it as per our requirment. There is no change in
+the original remote repository.
+eg. Open source project.
+
+Pull Requests?
+When necessary changes in the open source project and now want to
+push those changes to original remote repository then pull requests 
+can be send by the local repo owner.

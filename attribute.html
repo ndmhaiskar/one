@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS selector by attribute</title>
+    <style>
+        input[type=text] {
+            border: 5px solid red;
+            padding: 5px;
+        }
+        input[type=number] {
+            border: 5px solid green;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input type="text" name="firstname" placeholder="FirstName"><br>
+        <input type="text" name="lastname" placeholder="LastName"><br>
+        <input type="password" name="password" placeholder="password"><br>
+        <input type="number" name="age" placeholder="age">
+        <hr>
+        <label>Enter any choice</label><br>
+        Male<input type="radio" name="gender" id="male">
+        Female<input type="radio" name="gender" id="female">
+        Other<input type="radio" name="gender" id="other">
+    </form>
+</body>
+</html>

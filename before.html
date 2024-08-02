@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS before pseudo class</title>
+    <style>
+        body {
+            background-color: lightyellow;
+            margin: 20px;
+            border: 5px solid blue;
+            padding: 10px;
+        }
+        a::before {
+            content: '=> Click here :Attribute here ';
+            color: darkgreen;
+        }
+        a::after {
+            content: ' Yes go';
+            color: pink;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1><a href="#">Content1</a></h1>
+    <h1><a href="#">Content2</a></h1>
+    <h1><a href="#">Content3</a></h1>
+</body>
+</html>

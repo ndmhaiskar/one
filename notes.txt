@@ -8,3 +8,11 @@
 <header> <nav> <section> <footer>
 
 <audio> <video> <datalist>
+
+Responsive Design:
+Webpage must be responsive to user input and devices
+mobile,tabs,different screens, different os, different browsers
+--viewport
+--media queries
+--flexbox
+--grids

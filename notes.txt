@@ -16,3 +16,7 @@ mobile,tabs,different screens, different os, different browsers
 --media queries
 --flexbox
 --grids
+
+
+--viewport : visible area of screen
+--content="width=device-width" --changing from differnt kind of screens (mobile to laptop to crt to tab screens)

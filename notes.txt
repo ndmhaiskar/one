@@ -20,3 +20,8 @@ mobile,tabs,different screens, different os, different browsers
 
 --viewport : visible area of screen
 --content="width=device-width" --changing from differnt kind of screens (mobile to laptop to crt to tab screens)
+
+
+-- How to remember all these CSS tags and all?
+Already written libraries like Bootstrap
+Bootstrap actually internally devides the page into 12 individual columns for the page lookup and adding contents. 
